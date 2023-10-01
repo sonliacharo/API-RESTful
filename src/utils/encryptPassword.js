@@ -1,8 +1,8 @@
-const bcrypt = require('bcrypt')
+import bcrypt from "bcrypt";
 
 const encryptPassword = (senha) => {
-    const encryptedPassword = bcrypt.hash(senha, 10)
-    return encryptedPassword
-}
+  const encryptedPassword = bcrypt.hash(senha, 10);
+  return encryptedPassword;
+};
 
-module.exports = encryptPassword
+export default encryptPassword;

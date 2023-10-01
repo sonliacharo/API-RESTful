@@ -1,12 +1,15 @@
-const express = require('express')
+import { Router } from "express";
 
-const route = express()
+import { registerUser } from "../controllers/user.js";
+import { getCategories } from "../controllers/categories.js";
 
-const { getCategories } = require('../controllers/categories')
-const validateRegistration = require('../intermediarios/validateRegistration')
-const registerUser = require('../controllers/registerUser')
+import validateRegistration from "../middlewares/validateRegistration.js";
+import loginVerification from "../middlewares/loginVerification.js";
 
-route.get('/categoria', getCategories)
-route.post('/usuario', validateRegistration, registerUser)
+export const router = Router();
 
-module.exports = route
+router.get("/categoria", getCategories);
+
+router.post("/usuario", validateRegistration, registerUser);
+
+router.use(loginVerification);

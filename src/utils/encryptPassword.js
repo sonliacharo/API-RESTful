@@ -1,8 +1,14 @@
-import bcrypt from "bcrypt";
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
-const encryptPassword = (senha) => {
-  const encryptedPassword = bcrypt.hash(senha, 10);
-  return encryptedPassword;
+export const encryptPassword = async (password) => {
+  return await bcrypt.hash(password, 10)
 };
 
-export default encryptPassword;
+export const checkEncrypt = async (encryptPassword = '', password = '') => {
+  return await bcrypt.compare(password, encryptPassword)
+};
+
+export const generateToken = (payload, options) => {
+  return jwt.sign(payload, process.env.JWT_PASSWORD, options)
+};

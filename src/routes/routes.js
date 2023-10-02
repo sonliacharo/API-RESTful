@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { registerUser } from "../controllers/user.js";
+import { registerUser, getProfile } from "../controllers/user.js";
 import { getCategories } from "../controllers/categories.js";
 
 import validateRegistration from "../middlewares/validateRegistration.js";
@@ -13,3 +13,5 @@ router.get("/categoria", getCategories);
 router.post("/usuario", validateRegistration, registerUser);
 
 router.use(loginVerification);
+
+router.get("/usuario", getProfile);

@@ -1,5 +1,5 @@
 import pool from "../database/pdv.js";
-import encryptPassword from "../utils/encryptPassword.js";
+import { encryptPassword } from "../utils/encryptPassword.js";
 import handleServerError from "../utils/serverError.js";
 
 const editProfile = async (req, res) => {

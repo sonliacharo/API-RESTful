@@ -1,8 +1,4 @@
-import {
-  findClienttByID,
-  checkEmailInUse,
-  checkCPFInUse,
-} from "../../repositories/clientRepository.js";
+import { findClienttByID } from "../../repositories/clientRepository.js";
 
 const validateEditedClient = async (req, res, next) => {
   const { nome, email, cpf } = req.body;
@@ -19,18 +15,6 @@ const validateEditedClient = async (req, res, next) => {
       return res
         .status(400)
         .json({ message: "Informe o nome, cpf e e-mail do cliente" });
-    }
-
-    if (await checkEmailInUse(email)) {
-      return res.status(403).json({
-        message: "O e-mail informado já está em uso por outro usuário",
-      });
-    }
-
-    if (await checkCPFInUse(cpf)) {
-      return res.status(403).json({
-        message: "O CPF informado já está em uso por outro usuário",
-      });
     }
 
     next();

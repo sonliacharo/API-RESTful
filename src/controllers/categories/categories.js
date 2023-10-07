@@ -1,5 +1,5 @@
-import handleServerError from "../utils/serverError.js";
-import pool from "../database/pdv.js";
+import handleServerError from "../../utils/serverError.js";
+import pool from "../../database/pdv.js";
 
 const getCategories = async (req, res) => {
   try {

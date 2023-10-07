@@ -9,6 +9,6 @@ export const editClient = async (req, res) => {
     const newClient = await editClientById({ nome, email, cpf, id });
     return res.status(200).json(newClient);
   } catch (error) {
-    return handleServerError(error);
+    return handleServerError(res);
   }
 };

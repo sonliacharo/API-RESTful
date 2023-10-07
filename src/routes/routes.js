@@ -6,10 +6,10 @@ import validateRegistration from '../middlewares/validateRegistration.js'
 import { validateLoginData, validateToken } from '../middlewares/authMiddlewares.js'
 import { validateDataRequest, validateRequiredProperties } from '../middlewares/userValidators.js'
 import login from '../controllers/loginController.js'
-
 import validateEditProfile from '../middlewares/validateEditProfile.js'
 import { checkIdProduct } from '../middlewares/product/productMiddlewares.js'
-import { deleteProduct } from '../controllers/product/productControlers.js'
+import { deleteProduct, registerProduct } from '../controllers/product/productControlers.js'
+
 
 export const router = Router()
 
@@ -34,4 +34,5 @@ router.get("/usuario", getProfile)
 router.put("/usuario", validateEditProfile, editProfile)
 
 //produtos
+router.post('/produto', registerProduct)
 router.delete("/produto/:id", checkIdProduct, deleteProduct)

@@ -1,4 +1,5 @@
 import { findClients } from "../../repositories/clientRepository.js";
+import handleServerError from "../../utils/serverError.js";
 
 const getClients = async (req, res) => {
   try {

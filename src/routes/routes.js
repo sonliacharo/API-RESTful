@@ -18,6 +18,8 @@ import validateEditProfile from "../middlewares/validateEditProfile.js";
 import { checkIdProduct } from "../middlewares/product/productMiddlewares.js";
 import { deleteProduct } from "../controllers/product/productControlers.js";
 import getClients from "../controllers/clients/getClients.js";
+import validateEditedClient from "../middlewares/clients/validateEditedClient.js";
+import { editClient } from "../controllers/clients/editClient.js";
 
 export const router = Router();
 
@@ -46,3 +48,4 @@ router.delete("/produto/:id", checkIdProduct, deleteProduct);
 
 //clientes
 router.get("/cliente", getClients);
+router.put("/cliente/:id", validateEditedClient, editClient);

@@ -1,4 +1,3 @@
-import pool from "../../database/pdv.js";
 import handleServerError from "../../utils/serverError.js";
 
 const getProfile = async (req, res) => {

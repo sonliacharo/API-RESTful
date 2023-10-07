@@ -17,6 +17,7 @@ import login from "../controllers/user/loginController.js";
 import validateEditProfile from "../middlewares/validateEditProfile.js";
 import { checkIdProduct } from "../middlewares/product/productMiddlewares.js";
 import { deleteProduct } from "../controllers/product/productControlers.js";
+import getClients from "../controllers/clients/getClients.js";
 
 export const router = Router();
 
@@ -42,3 +43,6 @@ router.put("/usuario", validateEditProfile, editProfile);
 
 //produtos
 router.delete("/produto/:id", checkIdProduct, deleteProduct);
+
+//clientes
+router.get("/cliente", getClients);

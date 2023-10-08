@@ -8,7 +8,7 @@ import { validateDataRequest, validateRequiredProperties } from '../middlewares/
 import login from '../controllers/loginController.js'
 import validateEditProfile from '../middlewares/validateEditProfile.js'
 import { checkIdProduct } from '../middlewares/product/productMiddlewares.js'
-import { deleteProduct, registerProduct } from '../controllers/product/productControlers.js'
+import { deleteProduct, editProduct, registerProduct } from '../controllers/product/productControlers.js'
 
 
 export const router = Router()
@@ -35,4 +35,5 @@ router.put("/usuario", validateEditProfile, editProfile)
 
 //produtos
 router.post('/produto', registerProduct)
+router.put('/produto:id', editProduct)
 router.delete("/produto/:id", checkIdProduct, deleteProduct)

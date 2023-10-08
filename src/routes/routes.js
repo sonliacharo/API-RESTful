@@ -10,7 +10,7 @@ import login from "../controllers/user/loginController.js";
 
 import validateEditProfile from "../middlewares/validateEditProfile.js";
 import { checkIdProduct } from "../middlewares/product/productMiddlewares.js";
-import { deleteProduct } from "../controllers/product/productControlers.js";
+import { deleteProduct, editProduct, registerProduct } from "../controllers/product/productControlers.js";
 import getClients from "../controllers/clients/getClients.js";
 import validateEditedClient from "../middlewares/clients/validateEditedClient.js";
 import { editClient } from "../controllers/clients/editClient.js";
@@ -19,7 +19,7 @@ import registerCustomer from "../controllers/clients/registerCustomer.js";
 import listProducts from "../controllers/product/listProducts.js";
 import listProduct from "../controllers/product/listProduct.js";
 
-export const router = Router();
+export const router = Router()
 
 const requiredAccountProperties = ["email", "senha"];
 
@@ -42,9 +42,12 @@ router.get("/usuario", getProfile);
 router.put("/usuario", validateEditProfile, editProfile);
 
 //produtos
-router.delete("/produto/:id", checkIdProduct, deleteProduct);
+
 router.get("/produto", listProducts)
 router.get("/produto/:id", listProduct)
+router.post('/produto', registerProduct)
+router.put('/produto:id', editProduct)
+router.delete("/produto/:id", checkIdProduct, deleteProduct)
 
 //clientes
 router.get("/cliente", getClients);

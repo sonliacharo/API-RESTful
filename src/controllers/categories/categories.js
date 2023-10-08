@@ -3,7 +3,9 @@ import pool from "../../database/pdv.js";
 
 const getCategories = async (req, res) => {
   try {
-    const categories = await pool.query("select * from categorias");
+    const query = `select * from categorias`
+    
+    const categories = await pool.query(query);
     return res.status(200).json(categories.rows);
   } catch (error) {
     return handleServerError(res);

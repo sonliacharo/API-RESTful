@@ -31,7 +31,7 @@ export const editProduct = async (req, res) => {
 
     const { descricao, quantidade_estoque, valor, categoria_id } = req.body;
     const query = `update produtos set descricao = $1, quantidade_estoque = $2, valor = $3, categoria_id = $4 where id = $5 returning *`;
-    const values = [nome, descricao, preco, categoria_id, id];
+    const values = [ descricao, quantidade_estoque, valor, categoria_id, id];
     const updatedProduct = await pool.query(query, values);
     return res.status(201).json(updatedProduct.rows[0]);
   } catch (error) {

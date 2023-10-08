@@ -1,6 +1,6 @@
-import pool from "../database/pdv.js";
-import { encryptPassword } from "../utils/encryptPassword.js";
-import handleServerError from "../utils/serverError.js";
+import pool from "../../database/pdv.js";
+import { encryptPassword } from "../../utils/encryptPassword.js";
+import handleServerError from "../../utils/serverError.js";
 
 const registerUser = async (req, res) => {
   const { nome, email, senha } = req.body;
@@ -20,12 +20,4 @@ const registerUser = async (req, res) => {
   }
 };
 
-const getProfile = async (req, res) => {
-  try {
-    return res.status(200).json(req.user);
-  } catch (error) {
-    return handleServerError(res);
-  }
-};
-
-export { registerUser, getProfile };
+export default registerUser;

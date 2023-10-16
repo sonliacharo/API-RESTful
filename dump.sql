@@ -46,5 +46,23 @@ create table clientes (
   	estado varchar(50)
 );
 
+create table pedidos (
+	id serial primary key,
+  	cliente_id integer references clientes(id),
+  	observacao text,
+  	valor_total numeric(10,2) not null
+);
 
+create table pedido_produtos (
+	id serial primary key,
+  	pedido_id integer references pedidos(id),
+  	produto_id integer references produtos(id),
+  	quantidade_produto integer not null,
+  	valor_produto numeric(10,2) not null
+);
+
+alter table
+produtos 
+add column
+produto_imagem varchar(255);
 

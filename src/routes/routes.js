@@ -18,6 +18,7 @@ import { checkCpfAndEmail } from "../middlewares/clients/checkCpfAndEmail.js";
 import registerCustomer from "../controllers/clients/registerCustomer.js";
 import listProducts from "../controllers/product/listProducts.js";
 import listProduct from "../controllers/product/listProduct.js";
+import { registerOrder } from "../controllers/requests/registerOrder.js";
 
 export const router = Router()
 
@@ -49,6 +50,9 @@ router.post('/produto', registerProduct)
 router.put('/produto:id', editProduct)
 router.delete("/produto/:id", checkIdProduct, deleteProduct)
 
+//Pedidos
+router.post("/pedido", registerOrder);
+
 //clientes
 router.get("/cliente", getClients);
 
@@ -62,3 +66,4 @@ router.post(
   registerCustomer
 );
 router.put("/cliente/:id", validateEditedClient, editClient);
+

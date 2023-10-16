@@ -1,3 +1,4 @@
+import pool from "../../database/pdv.js";
 import { deleteProductByID } from '../../repositories/productRepository.js';
 import handleServerError from '../../utils/serverError.js';
 
@@ -16,6 +17,7 @@ export const registerProduct = async (req, res) => {
 
       return res.status(201).json(newProduct.rows[0]);
     } catch (error) {
+      console.log(error)
       return handleServerError(res);
     }
 }
